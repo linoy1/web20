@@ -1,0 +1,461 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header,
+nav,
+main,
+div,
+footer,
+section {
+    display: block;
+}
+
+body {
+    background: #171932;
+}
+
+#logo h2 {
+    position: absolute;
+    background-color: none;
+    width: 352px;
+    height: 40px;
+    left: 80px;
+    top: 20px;
+    font-family: Carter One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#logo {
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin-left: 16px;
+    margin-top: 16px;
+}
+
+
+/*shenkar 1*/
+
+#firstnav img {
+    position: absolute;
+    width: 1600px;
+    height: 331px;
+    left: 0px;
+    top: 96px;
+    background: url(image.png);
+    mix-blend-mode: normal;
+}
+
+#firstnav h1 {
+    position: absolute;
+    width: 300px;
+    height: 43px;
+    left: 16px;
+    margin-top: 410px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#firstnav h3 {
+    position: absolute;
+    width: 44px;
+    height: 25px;
+    left: 238px;
+    margin-top: 425px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#pic1 {
+    position: absolute;
+    width: 270px;
+    height: 220px;
+    margin-left: 16px;
+    margin-top: 508px;
+}
+
+#pic2 {
+    position: absolute;
+    width: 270px;
+    height: 220px;
+    margin-left: 302px;
+    margin-top: 508px;
+}
+
+#pic3 {
+    position: absolute;
+    width: 270px;
+    height: 220px;
+    margin-left: 588px;
+    margin-top: 508px;
+}
+
+.purpleRec {
+    position: absolute;
+    width: 270px;
+    height: 60px;
+    left: 8px;
+    top: 228px;
+    background: #9B51E0;
+    box-shadow: 0px 2px 7px rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.purpleRec h6 {
+    position: absolute;
+    width: 109px;
+    height: 19px;
+    left: 26px;
+    top: 21px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.purpleRec img {
+    position: relative;
+    width: 19px;
+    height: 19px;
+    left: 154px;
+    top: 21px;
+}
+
+#Vector-2 {
+    width: 19px;
+    height: 19px;
+    left: 164px;
+    top: 21px;
+}
+
+#firstfooter {
+    position: absolute;
+    width: 1602px;
+    height: 48px;
+    left: 0px;
+    margin-top: 852px;
+    background: #9B51E0;
+}
+
+#firstfooter img {
+    position: relative;
+    width: 16px;
+    height: 14px;
+    top: 10px;
+    margin-left: 20px;
+    opacity: 0.5;
+}
+
+#linkedin {
+    height: 14px;
+    width: 16px;
+    opacity: 0.5;
+}
+
+
+/* shenkar 2*/
+
+#img1 {
+    position: absolute;
+    width: 255px;
+    height: 168px;
+    left: 17px;
+    top: 137px;
+}
+
+#img2 {
+    position: absolute;
+    width: 380px;
+    height: 250px;
+    left: 292px;
+    top: 96px;
+}
+
+#img3 {
+    position: absolute;
+    width: 255px;
+    height: 168px;
+    left: 692px;
+    top: 137px;
+}
+
+#img4 {
+    position: absolute;
+    width: 255px;
+    height: 168px;
+    left: 967px;
+    top: 137px
+}
+
+#city h1 {
+    position: absolute;
+    width: 226px;
+    height: 43px;
+    left: 16px;
+    top: 376px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#city h3 {
+    position: absolute;
+    width: 44px;
+    height: 25px;
+    left: 248px;
+    top: 391px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#onemenu a {
+    position: relative;
+    width: 664px;
+    height: 33px;
+    left: 17px;
+    top: 370px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 33px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#firstP p {
+    position: absolute;
+    width: 367px;
+    height: 132px;
+    left: 17px;
+    top: 525px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+ul {
+    display: block;
+    margin-top: 490px;
+}
+
+#list h6 {
+    position: relative;
+    width: 90px;
+    height: 14px;
+    left: 60px;
+    top: 15px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 10px;
+    display: block;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+#list {
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin-left: 16px;
+    margin-top: 40px;
+    margin: initial;
+}
+
+#section2 h1 {
+    position: absolute;
+    height: 43px;
+    left: 16px;
+    top: 809px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#section3 h1 {
+    position: absolute;
+    width: 206px;
+    height: 43px;
+    left: 15px;
+    top: 1071px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#section4 h1 {
+    position: absolute;
+    width: 206px;
+    height: 43px;
+    left: 16px;
+    top: 1342px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#section5 h1 {
+    position: absolute;
+    width: 206px;
+    height: 43px;
+    left: 15px;
+    top: 1614px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+#section2 p {
+    position: absolute;
+    width: 367px;
+    height: 132px;
+    left: 17px;
+    top: 868px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#section3 p {
+    position: absolute;
+    width: 367px;
+    height: 132px;
+    left: 16px;
+    top: 1130px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#section4 p {
+    position: absolute;
+    width: 367px;
+    height: 132px;
+    left: 17px;
+    top: 1401px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#section5 p {
+    position: absolute;
+    width: 367px;
+    height: 132px;
+    left: 16px;
+    top: 1673px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#sections p {
+    margin-top: 50px;
+}
+
+#secondfooter {
+    position: absolute;
+    width: 1602px;
+    height: 48px;
+    left: -2px;
+    top: 1856px;
+    background: #9B51E0;
+}
+
+#secondfooter img {
+    position: relative;
+    width: 16px;
+    height: 14px;
+    top: 10px;
+    margin-left: 20px;
+    opacity: 0.5;
+}
+
+#linkedin {
+    height: 14px;
+    width: 16px;
+    opacity: 0.5;
+}
