@@ -33,6 +33,9 @@
                             </div>
                     </form>  {% endcomment %}
              <div class="card-body">
+             {% if error is not None %}
+                 {{ error }}
+             {% endif %}
                  <form  method="POST" action="registration">
                     {% csrf_token %}
                         {{ form.as_p }}
@@ -75,6 +78,9 @@
                             </div>
 
                         -->
+                            <div class="form-group">
+                                <input type="submit" value="הרשם" class=" btn float-right login_btn">
+                            </div>
                         </form>
                     </div> 
 
