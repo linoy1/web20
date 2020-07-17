@@ -6,8 +6,8 @@ from django.contrib.auth import get_user_model
 
 class CustomUser(AbstractUser):
     email = models.EmailField(verbose_name='email', max_length=255, unique=True)
-    username = models.CharField(max_length=255)
-    REQUIRED_FIELDS = [''] 
+    username = models.CharField(verbose_name='username' ,max_length=255, null=True, blank=True)
+    REQUIRED_FIELDS = ['username'] 
     USERNAME_FIELD = 'email'
 
     def get_username(self):
