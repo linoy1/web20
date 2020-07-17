@@ -19,7 +19,7 @@ from elder_gurder_service import views
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('homepage',views.homepage),
+    path('',views.homepage),
     path('registration',views.registration),
     path('people_list',views.people_list), 
     path('people_detail',views.people_detail),
