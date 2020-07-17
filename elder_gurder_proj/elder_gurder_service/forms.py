@@ -12,5 +12,5 @@ class UserAdminCreationForm(UserCreationForm):
         model = get_user_model()
         fields = ['email', 'username','password']
 
-    class RegisterForm(forms.Form):
-          email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+    # class RegisterForm(forms.Form):
+    #       email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
