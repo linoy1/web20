@@ -10,7 +10,7 @@ class UserAdminCreationForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['email', 'username','password']
+        fields = ['email', 'username']
 
     # class RegisterForm(forms.Form):
     #       email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
