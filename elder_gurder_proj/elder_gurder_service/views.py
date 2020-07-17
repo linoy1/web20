@@ -4,13 +4,35 @@ from elder_gurder_service.forms import UserAdminCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def homepage(request):
     return render(request,'index.html')
 def registration(request):
-    user = UserAdminCreationForm()
-    return render(request,'register.html' , context={'form': user})
+    
+    if request.method == 'POST':
+        form_user = UserAdminCreationForm(request.POST)
+        if form_user.is_valid():
+            #create the user
+            form_user.save()
+            # getting details
+            username     = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password')
+            
+            print(username , raw_password)
+            # authenticate user
+            user = authenticate(username=username, password=raw_password)
+            if user is not None:
+                login(request, user)
+                return redirect('people_list')
+            else:
+                return redirect('register')
+    else:
+        form_user = UserAdminCreationForm()
+        return render(request,'register.html' , context={'form': form_user})
+    
 def people_list(request):
     return render(request,'people_list.html')
 def people_detail(request):

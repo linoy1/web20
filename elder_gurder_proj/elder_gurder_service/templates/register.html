@@ -35,7 +35,8 @@
              <div class="card-body">
                  <form  method="POST" action="registration">
                     {% csrf_token %}
-                        {% comment %} {{ form.as_p }} {% endcomment %}
+                        {{ form.as_p }}
+                        <!--
                             <div class="input-group form-group">
                                 {% comment %} <input type="email" class="moveRight form-control" placeholder="אימייל"> {% endcomment %}
                                 <div class="input-group-prepend">
@@ -72,6 +73,8 @@
                                     <a href="register.html"> התחבר עכשיו </a> ?יש לך חשבון
                                 </div>
                             </div>
+
+                        -->
                         </form>
                     </div> 
 
