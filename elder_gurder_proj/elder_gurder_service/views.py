@@ -66,6 +66,20 @@ def registration(request):
     return render(request,'register.html' , context={'form': form_user})
 
 
+class CreateLonely(CreateView):
+    model  = models.LonelyPeople
+    fields = ["name",'age','address','phone','deatils']
+    template_name = 'lonelypeople_form.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(CreateLonely, self).dispatch(*args, **kwargs)
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CreateLonely, self).form_valid(form)
+
+
 class LonelyPeoples(ListView):
     model = models.LonelyPeople
     context_object_name = 'lonely_peoples'
@@ -84,19 +98,12 @@ class LonelyDetails(DetailView):
     def dispatch(self, *args, **kwargs):
         return super(LonelyDetails, self).dispatch(*args, **kwargs)
 
-class CreateLonely(CreateView):
-    model  = models.LonelyPeople
-    fields = ["name",'age','address','phone','deatils']
-    template_name = 'lonelypeople_form.html'
 
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(CreateLonely, self).dispatch(*args, **kwargs)
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(CreateLonely, self).form_valid(form)
-
+class UpdateLonelyView(UpdateView):
+    model = models.LonelyPeople
+    fields = ['name', 'age', 'address', 'phone', 'deatils']
+    template_name = 'lonelypeople_update.html'
+    # template_name_suffix = '_update_for'
 
 class DeleteLonelyView(DeleteView):
     model = models.LonelyPeople
@@ -108,11 +115,6 @@ class DeleteLonelyView(DeleteView):
         return super(DeleteLonelyView, self).dispatch(*args, **kwargs)
 
 
-class UpdateLonelyView(UpdateView):
-    model = models.LonelyPeople
-    fields = ['name', 'age', 'address', 'phone', 'deatils']
-    template_name = 'lonelypeople_update.html'
-    # template_name_suffix = '_update_for'
 
 
 @login_required   
