@@ -108,6 +108,13 @@ class DeleteLonelyView(DeleteView):
         return super(DeleteLonelyView, self).dispatch(*args, **kwargs)
 
 
+class UpdateLonelyView(UpdateView):
+    model = models.LonelyPeople
+    fields = ['name', 'age', 'address', 'phone', 'deatils']
+    template_name = 'lonelypeople_update.html'
+    # template_name_suffix = '_update_for'
+
+
 @login_required   
 def people_list(request):
     return render(request,'people_list.html')

@@ -31,7 +31,8 @@ urlpatterns = [
     path('create_loenly' , views.CreateLonely.as_view()),
     path('lonely_peoples', views.LonelyPeoples.as_view(), name='lonely_peoples'),
     path('lonely/<int:pk>', views.LonelyDetails.as_view() , name='lonely'), 
-    path('delete_lonely/<int:pk>', views.DeleteLonelyView.as_view(), name='delete_lonely')
+    path('delete_lonely/<int:pk>', views.DeleteLonelyView.as_view(), name='delete_lonely'),
+    path('update_lonely/<int:pk>', views.UpdateLonelyView.as_view(), name='update_lonely'),
 
 ]
                             
