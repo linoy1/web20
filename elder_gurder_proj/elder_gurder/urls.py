@@ -28,8 +28,9 @@ urlpatterns = [
     path('visit_detail',views.visit_detail),
     path('edit_visit',views.edit_visit),
     path('delete_visit',views.delete_visit),
-    path('second_user',views.second_user),
-    path('conectes_list',views.conectes_list),
+    path('create_loenly' , views.CreateLonely.as_view()),
+    path('lonely_peoples', views.LonelyPeoples.as_view()),
+    path('lonely/<int:pk>', views.LonelyDetails.as_view() , name='lonely'), 
 
 ]
                             
