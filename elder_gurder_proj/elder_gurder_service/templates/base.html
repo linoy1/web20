@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/Style.css' %} "/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>people list</title>
+</head>
+
+<body class="backgroundimg">
+    <header>
+        <a id="logo" href="index.html"></a>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <form class="form-inline">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">חיפוש</button>
+                    <input class="form-control mr-sm-2" type="search" placeholder="חיפוש" aria-label="Search" />
+                </form>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">צור קשר</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">האנשים שלנו</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">רישום למערכת</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">אודות</a>
+                    </li>
+                </ul>
+                <a class="navbar-brand" href="#">דף הבית</a>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block body_block %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>
