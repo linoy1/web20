@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 
 
@@ -12,5 +12,11 @@ class UserAdminCreationForm(UserCreationForm):
         model = get_user_model()
         fields = ['email', 'username']
 
-    # class RegisterForm(forms.Form):
-    #       email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+class UserAuthForm(AuthenticationForm):
+    """
+    A Custom form for creating new users.
+    """
+
+    class Meta:
+        model = get_user_model()
+        fields = ['email']
