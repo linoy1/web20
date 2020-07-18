@@ -9,6 +9,10 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ( ListView, DeleteView, CreateView,
                                  DetailView, TemplateView, UpdateView )
 from elder_gurder_service import models
+from django.utils.decorators import method_decorator
+from django.urls import reverse_lazy
+
+
 
 # Create your views here.
 def homepage(request):
@@ -23,7 +27,7 @@ def homepage(request):
         print(user)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('people_list')
+            return HttpResponseRedirect('lonely_peoples')
         else:
             form_user = UserAdminCreationForm()
             return HttpResponseRedirect('registration',{'form':form_user})
@@ -50,7 +54,7 @@ def registration(request):
                 user = authenticate(username=email, password=raw_password1)
                 if user is not None:
                     login(request, user)
-                    return HttpResponseRedirect('people_list')
+                    return HttpResponseRedirect('lonely_peoples')
                 else:
                     form_user = UserAdminCreationForm()
                     return HttpResponseRedirect('registration',{'form':form_user})
@@ -66,21 +70,43 @@ class LonelyPeoples(ListView):
     model = models.LonelyPeople
     context_object_name = 'lonely_peoples'
     template_name = 'people_list.html'
+    
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LonelyPeoples, self).dispatch(*args, **kwargs)
 
 class LonelyDetails(DetailView):
     context_object_name = 'lonely_person'
     model = models.LonelyPeople
     template_name = 'people_detail.html'
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LonelyDetails, self).dispatch(*args, **kwargs)
+
 class CreateLonely(CreateView):
     model  = models.LonelyPeople
     fields = ["name",'age','address','phone','deatils']
     template_name = 'lonelypeople_form.html'
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(CreateLonely, self).dispatch(*args, **kwargs)
+
     def form_valid(self, form):
-        print(self.request)
         form.instance.user = self.request.user
         return super(CreateLonely, self).form_valid(form)
+
+
+class DeleteLonelyView(DeleteView):
+    model = models.LonelyPeople
+    template_name = 'deleteLonely.html'
+    success_url = reverse_lazy('lonely_peoples')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DeleteLonelyView, self).dispatch(*args, **kwargs)
+
 
 @login_required   
 def people_list(request):

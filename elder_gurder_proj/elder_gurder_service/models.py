@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 class CustomUser(AbstractUser):
     email = models.EmailField(verbose_name='email', max_length=255, unique=True)
@@ -34,7 +35,7 @@ class LonelyPeople(models.Model):
         return f'The name is {self.name} and his address is {self.address}'
 
     def get_absolute_url(self):
-        return reverse("people_detail.html", args=[str(self.pk)])
+        return reverse("lonely", args=[str(self.pk)])
 
 class Visitis(models.Model):
     user = models.ForeignKey(

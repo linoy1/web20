@@ -21,16 +21,17 @@ urlpatterns = [
     path('admin/', admin.site.urls), 
     path('',views.homepage),
     path('registration',views.registration),
-    path('people_list',views.people_list), 
-    path('people_detail',views.people_detail),
-    path('add_visit',views.add_visit),
-    path('add_visit_permission',views.add_visit_permission),
-    path('visit_detail',views.visit_detail),
-    path('edit_visit',views.edit_visit),
-    path('delete_visit',views.delete_visit),
+    # path('people_list',views.people_list), 
+    # path('people_detail',views.people_detail),
+    # path('add_visit',views.add_visit),
+    # path('add_visit_permission',views.add_visit_permission),
+    # path('visit_detail',views.visit_detail),
+    # path('edit_visit',views.edit_visit),
+    # path('delete_visit',views.delete_visit),
     path('create_loenly' , views.CreateLonely.as_view()),
-    path('lonely_peoples', views.LonelyPeoples.as_view()),
+    path('lonely_peoples', views.LonelyPeoples.as_view(), name='lonely_peoples'),
     path('lonely/<int:pk>', views.LonelyDetails.as_view() , name='lonely'), 
+    path('delete_lonely/<int:pk>', views.DeleteLonelyView.as_view(), name='delete_lonely')
 
 ]
                             
