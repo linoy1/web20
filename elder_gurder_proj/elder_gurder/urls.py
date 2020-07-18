@@ -19,8 +19,11 @@ from elder_gurder_service import views
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
+    # users
     path('',views.homepage),
     path('registration',views.registration),
+   
+    #
     # path('people_list',views.people_list), 
     # path('people_detail',views.people_detail),
     # path('add_visit',views.add_visit),
@@ -28,11 +31,18 @@ urlpatterns = [
     # path('visit_detail',views.visit_detail),
     # path('edit_visit',views.edit_visit),
     # path('delete_visit',views.delete_visit),
+    
+    # lonely
     path('create_loenly' , views.CreateLonely.as_view()),
     path('lonely_peoples', views.LonelyPeoples.as_view(), name='lonely_peoples'),
     path('lonely/<int:pk>', views.LonelyDetails.as_view() , name='lonely'), 
     path('delete_lonely/<int:pk>', views.DeleteLonelyView.as_view(), name='delete_lonely'),
     path('update_lonely/<int:pk>', views.UpdateLonelyView.as_view(), name='update_lonely'),
-
+    #visits
+    path('create_visit', views.CreateVisit.as_view(), name='create_visit'),
+    path('list_view_visits/<int:loneny_id>', views.ListViewVisits.as_view(), name='list_view_visits'),
+    path('detail_view_visit/<int:pk>', views.DetailViewVisit.as_view(), name='detail_view_visit'),
+    path('update_view_visit/<int:pk>', views.UpdateViewVisit.as_view(), name='update_view_visit'),
+    path('delete_view_visit/<int:pk>/<int:loneny_id>', views.DeleteViewVisit.as_view() , name='delete_view_visit'),
 ]
                             

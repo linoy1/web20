@@ -54,4 +54,7 @@ class Visitis(models.Model):
     def __str__(self):
         return f'{self.user} visit {self.loneny} at {self.date}'
 
+    def get_absolute_url(self):
+        return reverse("detail_view_visit", args=[str(self.pk)])
+
 

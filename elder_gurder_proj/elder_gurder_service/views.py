@@ -14,7 +14,7 @@ from django.urls import reverse_lazy
 
 
 
-# Create your views here.
+########################### USERS ########################################3
 def homepage(request):
     if request.method == 'POST':
         print(request.POST)
@@ -64,8 +64,11 @@ def registration(request):
 
     form_user = UserAdminCreationForm()
     return render(request,'register.html' , context={'form': form_user})
+########################### USERS END ########################################3
 
 
+
+######################## Lonely #############################################
 class CreateLonely(CreateView):
     model  = models.LonelyPeople
     fields = ["name",'age','address','phone','deatils']
@@ -104,7 +107,9 @@ class UpdateLonelyView(UpdateView):
     fields = ['name', 'age', 'address', 'phone', 'deatils']
     template_name = 'lonelypeople_update.html'
     # template_name_suffix = '_update_for'
-
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(UpdateLonelyView, self).dispatch(*args, **kwargs)
 class DeleteLonelyView(DeleteView):
     model = models.LonelyPeople
     template_name = 'deleteLonely.html'
@@ -113,7 +118,68 @@ class DeleteLonelyView(DeleteView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(DeleteLonelyView, self).dispatch(*args, **kwargs)
+######################## Lonely END #############################################
 
+
+######################## visits #############################################
+class CreateVisit(CreateView):
+    model  = models.Visitis
+    fields = ["loneny", 'date', 'visit_details']
+    template_name = 'add_visit.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(CreateVisit, self).dispatch(*args, **kwargs)
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(CreateVisit, self).form_valid(form)
+
+
+class ListViewVisits(ListView):
+    model = models.Visitis
+    context_object_name = 'visits'
+    template_name = 'lists_visits.html'
+    
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ListViewVisits, self).dispatch(*args, **kwargs)
+
+    def get_queryset(self):
+        print(self.kwargs)
+        return models.Visitis.objects.filter(loneny=self.kwargs['loneny_id'])
+
+class DetailViewVisit(DetailView):
+    context_object_name = 'visit'
+    model = models.Visitis
+    template_name = 'visit_detail.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DetailViewVisit, self).dispatch(*args, **kwargs)
+
+
+class UpdateViewVisit(UpdateView):
+    model = models.Visitis
+    fields = ["loneny", 'date', 'visit_details']
+    template_name = 'visit_update.html'
+    # template_name_suffix = '_update_for'
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(UpdateViewVisit, self).dispatch(*args, **kwargs)
+
+class DeleteViewVisit(DeleteView):
+    model = models.Visitis
+    template_name = 'delete_visit.html'
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse_lazy('list_view_visits', kwargs={'loneny_id': self.kwargs['loneny_id']})
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DeleteViewVisit, self).dispatch(*args, **kwargs)
+######################## Visists END #############################################
 
 
 
