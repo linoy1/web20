@@ -1,164 +1,17 @@
-<!DOCTYPE html>
-{% load static%}
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="JS/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/Style.css' %} "/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>add_visit</title>
-</head>
+{% block body_block %}
 
-<body class="backgroundimg">
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <form  method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-    <header>
-        <a id="logo" href="index.html"></a>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <form class="form-inline">
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">חיפוש</button>
-                    <input class="form-control mr-sm-2" type="search" placeholder="חיפוש" aria-label="Search" />
-                </form>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">צור קשר</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">האנשים שלנו</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">רישום למערכת</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">אודות</a>
-                    </li>
-                </ul>
-                <a class="navbar-brand" href="#">דף הבית</a>
-
-            </div>
-        </nav>
-    </header>
-
-    <section class="add_visit">
-        <div class="text-center">
-            <h1 class="nice">Add visit</h1>
-        </div>
-        <form class="form-horizontal" method="post" action="#">
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Name</label>
-
-                <div class="col-md-4">
-                    <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md" required="">
-                    <span class="help-block">Please type in your full name</span>
+                <div class="form-group">
+                    <input type="submit" value="צור ביקור" class=" btn float-right login_btn">
                 </div>
-            </div>
-            <!-- Gender Input -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="checkboxes">Gender</label>
-
-                <div class="col-md-4">
-                    <div class="checkbox">
-                        <label>
-                                <input name="genderboxes" id="genderboxes-0" value="1" type="radio">
-                                Male
-                            </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                                <input name="genderboxes" id="genderboxes-1" value="2" type="radio">
-                                Female
-                            </label>
-                    </div>
-                    <span class="help-block">Please select your Gender</span>
-
-                </div>
-            </div>
-
-            <!-- Paddress input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Address</label>
-
-                <div class="col-md-4">
-                    <input id="paddress" name="paddress" type="text" placeholder="Address" class="form-control input-md" required="">
-                    <span class="help-block">Please type in man/woman Address</span>
-                </div>
-            </div>
-
-            <!-- Phone input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Phone</label>
-
-                <div class="col-md-4">
-                    <input id="phone" name="phone" type="number" placeholder="Phone number" class="form-control input-md" required="">
-                    <span class="help-block">Please provide man/woman Number</span>
-                </div>
-            </div>
-
-            <!-- Employment Input -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="checkboxes">has/hasn't family?</label>
-
-                <div class="col-md-4">
-                    <div class="checkbox">
-                        <label>
-                                <input name="memployboxes" id="memployboxes-0" value="0" type="radio">
-                                No
-                            </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                                <input name="memployboxes" id="memployboxes-1" value="1" type="radio">
-                                Yes
-                            </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Father Name input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="name">contact people</label>
-
-                <div class="col-md-4">
-                    <input id="fname" name="fname" type="text" placeholder="Name" class="form-control input-md" required="">
-                    <span class="help-block">Please type in your Name</span>
-                </div>
-            </div>
-            <!-- Father Phone input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">contact people Phone</label>
-
-                <div class="col-md-4">
-                    <input id="fphone" name="fphone" type="number" placeholder="Phone number" class="form-control input-md" required="">
-                    <span class="help-block">Please provide your  Number</span>
-                </div>
-            </div>
-
-            <!-- Button (Double) -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="button1id"></label>
-
-                <div class="col-md-8">
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <a id="cancel" name="cancel" class="btn btn-danger" href="#">
-                            Cancel</a>
-                </div>
-            </div>
-
-        </form>
-    </section>
-
-</body>
-
-</html>
+            </form>
+        </div>    
+    </div>
+{% endblock %}

@@ -1,2 +1,13 @@
-{% load static%}
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/Style.css' %} "/>
+{% extends 'base.html' %}
+{% block body_block %}
+       <form method="post">
+            
+            {{ object.loneny.pk }}
+            {% csrf_token %}
+            <h1>
+                Are you sure you want to delete "{{ object }}"?
+            </h1>
+            <input type="submit" value="Confirm">
+
+        </form>
+{% endblock %}

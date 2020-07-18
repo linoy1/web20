@@ -33,8 +33,10 @@
             </ul>
         {{ lonely_person.deatils }}
         </section>
-        <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">יצירת ביקור</a>
-        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">היסטוריית ביקורים</a>
+        <a href="{% url 'create_visit' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">יצירת ביקור</a>
+        <a href="{% url 'list_view_visits' loneny_id=lonely_person.pk %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+            היסטוריית ביקורים
+        </a>
         {% comment %} display button only if the user created the loenly person {% endcomment %}
         {% if user.email == lonely_person.user.email %}
             <a href="{%url 'delete_lonely' pk=lonely_person.pk %}" class="btn btn-danger btn-lg active">

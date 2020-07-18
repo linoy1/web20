@@ -1,2 +1,12 @@
-{% load static%}
-    <link rel="stylesheet" type="text/css" href="{% static 'CSS/Style.css' %} "/>
+{% extends 'base.html' %}
+
+{% block body_block %}
+    <section class="peopleheader">
+        <h1>
+            {{ visit }}
+        </h1>
+        <h2>
+            {{ visit.visit_details }}
+        </h2>
+    </section>
+{% endblock %}
