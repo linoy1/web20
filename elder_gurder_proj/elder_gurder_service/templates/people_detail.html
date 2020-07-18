@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body_block %}
+
        <section class="peopledetail">
         <section class="people_list">
         ---------------------- {{ user.email }} --------------------------
@@ -9,7 +10,7 @@
                     {{ lonely_person.age }}
                     :גיל
                 </li>
-                <li>      
+                <li id="address">      
                     {{ lonely_person.address }}
                     :כתובת
                 </li>

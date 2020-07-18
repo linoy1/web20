@@ -18,7 +18,7 @@
         #logo {
             margin: 0px auto;
             display: block;
-            background-image: url("/static/images/logo.png");
+            /* background-image: url("/static/images/logo.png"); */
             background-repeat: no-repeat;
             width: 1000px;
             height: 92px;
@@ -31,13 +31,14 @@
         
         html,
         body {
-            background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-            background-size: cover;
+            /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
+            /* background-size: cover;
             background-repeat: no-repeat;
             height: 100%;
             width: 100%;
+            
+            overflow-x: auto; */
             font-family: 'Numans', sans-serif;
-            overflow-x: auto;
         }
         
         .container {
@@ -191,4 +192,7 @@
         
         .add_visit .row {
             margin-left: 300px;
+        }
+        .hide_row {
+            display: none;
         }

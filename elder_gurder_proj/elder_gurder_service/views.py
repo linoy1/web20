@@ -183,31 +183,7 @@ class DeleteViewVisit(DeleteView):
 
 
 
-@login_required   
-def people_list(request):
-    return render(request,'people_list.html')
+def converstions_ideas(request):
+    return render(request,'converstion_ideas.html')
 
-@login_required
-def people_detail(request):
-    return render(request,'people_detail.html')
-
-@login_required
-def add_visit(request):
-    return render(request,'add_visit.html')
-
-@login_required
-def add_visit_permission(request):
-    return render(request,'add_visit_permission.html')
-
-@login_required
-def visit_detail(request):
-    return render(request,'visit_detail.html')
-
-@login_required
-def edit_visit(request):
-    return render(request,'edit_visit.html')
-
-@login_required
-def delete_visit(request):
-    return render(request,'delete_visit.html')
 
