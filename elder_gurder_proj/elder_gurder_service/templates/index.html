@@ -26,8 +26,10 @@
                     <h3>ברוכים הבאים</h3>
 
                     <div class="card-body">
-                        <form class="moveRight">
-                            <div class="input-group form-group">
+                        <form class="moveRight" method="POST" action="">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            {% comment %} <div class="input-group form-group">
                                 <input type="text" class="moveRight form-control" placeholder="שם משתמש">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text moveRight"><i class="fas fa-user"></i></span>
@@ -48,6 +50,9 @@
                                 <div class="d-flex justify-content-center links">
                                     <a href="registration"> הרשם עכשיו </a> ?אין לך חשבון
                                 </div>
+                            </div> {% endcomment %}
+                            <div class="form-group">
+                                <input type="submit" value="התחבר" class=" btn float-right login_btn">
                             </div>
                         </form>
                     </div>
