@@ -69,7 +69,7 @@
             {% for person in lonely_peoples %}
                 
                     <tr data-href="{%url 'lonely' pk=person.pk %}">
-                        <td><a href="{%url 'lonely' pk=person.pk %}"> {{ person.phone }} </a> </td>
+                        <td>{{ person.phone }}</td>
                         <td>{{ person.age }}</td>
                         <td>{{ person.address }}</td>
                         <td>{{ person.name }}</td>
