@@ -23,16 +23,16 @@
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">צור קשר</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'converstions_ideas' %}">רעיונות לנושאי שיחה</a>
-                    </li>
                     {% comment %} when the user is logeged in {% endcomment %}
                     {% if user is not None %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout_view' %}">התנתק</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'lonely_peoples' %}">אנשים הבודדים</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create_visit' %}">צור ביקור</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
@@ -40,8 +40,11 @@
                         </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">אודות</a>
+                        <a class="nav-link" href="{% url 'converstions_ideas' %}">רעיונות לנושאי שיחה</a>
                     </li>
+                    {% comment %} <li class="nav-item">
+                        <a class="nav-link" href="#">אודות</a>
+                    </li> {% endcomment %}
                 </ul>
                 <a class="navbar-brand" href="#">דף הבית</a>
 
