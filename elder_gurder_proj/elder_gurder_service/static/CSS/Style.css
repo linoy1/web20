@@ -18,11 +18,11 @@
         #logo {
             margin: 0px auto;
             display: block;
-            /* background-image: url("/static/images/logo.png"); */
+            background-image: url("/static/images/logo.png");
             background-repeat: no-repeat;
-            width: 1000px;
-            height: 92px;
-            margin-left: 500px;
+            width: 95%;
+            height: 100px;
+            /* margin-left: 500px; */
         }
         
         header {
@@ -131,10 +131,10 @@
         }
         /* table page */
         
-        .backgroundimg {
+        /* .backgroundimg {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-        }
+        } */
         
         .nav-item {
             margin-left: 120px;
