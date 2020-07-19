@@ -20,9 +20,9 @@ from elder_gurder_service import views
 urlpatterns = [
     path('admin/', admin.site.urls), 
     # users
-    path('',views.homepage),
-    path('registration',views.registration),
-   
+    path('',views.homepage, name=''),
+    path('registration',views.registration, name='registration'),
+    path('logout_view', views.logout_view, name='logout_view'),
     #
     # path('people_list',views.people_list), 
     # path('people_detail',views.people_detail),
@@ -32,7 +32,7 @@ urlpatterns = [
     # path('edit_visit',views.edit_visit),
     # path('delete_visit',views.delete_visit),
     
-    path('converstions_ideas' , views.converstions_ideas),
+    path('converstions_ideas' , views.converstions_ideas, name='converstions_ideas'),
     
     # lonely
     path('create_loenly' , views.CreateLonely.as_view()),

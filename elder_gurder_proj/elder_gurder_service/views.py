@@ -4,7 +4,7 @@ from elder_gurder_service.forms import UserAdminCreationForm , UserAuthForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponseRedirect
 from django.views.generic import ( ListView, DeleteView, CreateView,
                                  DetailView, TemplateView, UpdateView )
@@ -187,3 +187,7 @@ def converstions_ideas(request):
     return render(request,'converstion_ideas.html')
 
 
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('')
+    
