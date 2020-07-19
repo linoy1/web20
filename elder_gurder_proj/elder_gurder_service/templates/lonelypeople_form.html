@@ -18,12 +18,12 @@
 </head>
 
 <body>
-
+    {% load crispy_forms_tags %}
     <div class="container">
-        <div class="d-flex justify-content-center h-100">\
+        <div class="d-flex justify-content-center h-100">
             <form  method="POST" action="create_loenly">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
 
                 <div class="form-group">
                     <input type="submit" value="הרשם" class=" btn float-right login_btn">
