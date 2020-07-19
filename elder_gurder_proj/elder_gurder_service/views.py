@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from elder_gurder_service.forms import UserAdminCreationForm , UserAuthForm
+from elder_gurder_service.forms import UserAdminCreationForm , UserAuthForm , Lonely
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -11,6 +11,8 @@ from django.views.generic import ( ListView, DeleteView, CreateView,
 from elder_gurder_service import models
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
+from django.conf import settings
+
 
 
 
@@ -72,6 +74,7 @@ def registration(request):
 class CreateLonely(CreateView):
     model  = models.LonelyPeople
     fields = ["name",'age','address','phone','deatils']
+    # form_class = Lonely
     template_name = 'lonelypeople_form.html'
 
     @method_decorator(login_required)
@@ -189,5 +192,6 @@ def converstions_ideas(request):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect('')
+    return redirect(settings.LOGOUT_URL)
+    # return HttpResponseRedirect('')
     
