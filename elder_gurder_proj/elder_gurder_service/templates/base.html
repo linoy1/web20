@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     {% comment %} when the user is logeged in {% endcomment %}
-                    {% if user is not None %}
+                    {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout_view' %}">התנתק</a>
                         </li>
