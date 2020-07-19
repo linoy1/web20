@@ -1,20 +1,71 @@
-$(document).ready(function(){
+function removeChilds (node) {
+    var last;
+    while (last = node.lastChild) node.removeChild(last);
+};
 
-    axios.get(`http://newsapi.org/v2/top-headlines?country=il&category=entertainment&apiKey=c21ad93be4524c388271ce87094eae38`)
-    .then(res => {
-        const data = res.data.articles;
-        const ideas = document.getElementById('ideas');
-        ideas.innerHTML = '';
-        data.forEach(element => {
-            console.log(element);
-            ideas.innerHTML += `
-                <p>
-                    <a href="${element.url}">${element.title}</a>
-                </p>
-                <img src="${element.urlToImage}" alt="no data for this artical" width="500" height="600">
-            `
+async function displayPosts() {
+    const res = await axios.get(`https://jsonplaceholder.typicode.com/users/1/posts`)
+    
+    const data = res.data;
+    const ideas = document.getElementById('ideas');
+    removeChilds(ideas);
+    // ideas.innerHTML = '';
+    data.forEach(element => {
+        const post_id = element.id.toString();
+
+        console.log(element);
+        const container = document.createElement('div');
+        const content_wrapper = document.createElement('div');
+        const header = document.createElement('h3');
+        const p = document.createElement('p');
+
+        header.textContent = element.title;
+        p.textContent = element.body;
+        
+        content_wrapper.setAttribute('id', post_id);
+        content_wrapper.appendChild(header);
+        content_wrapper.appendChild(p);
+
+        container.appendChild(content_wrapper);
+
+        ideas.appendChild(container);
+
+        content_wrapper.addEventListener('click',  () => {
+            displayaCommnetes(post_id);
         });
-        console.log();
-    })
+        
+    });
+}
 
+async function displayaCommnetes(id) {
+    const comments_url = `https://jsonplaceholder.typicode.com/posts/${id}/comments`;
+    const comments = document.getElementById('comments');
+    // comment.innerHTML = ''
+    const respond  = await axios.get(comments_url)
+    const commntes_data = respond.data
+    removeChilds(comments);
+
+    commntes_data.forEach(comment => {
+        const container = document.createElement('div');
+        const wrapper_container = document.createElement('div');
+        const name = document.createElement('h4');
+        const email = document.createElement('h5');
+        const body = document.createElement('p');
+
+        name.textContent  = comment.name;
+        email.textContent = comment.email;
+        body.textContent  = comment.body;
+
+        wrapper_container.appendChild(name);
+        wrapper_container.appendChild(email);
+        wrapper_container.appendChild(body);
+
+        container.appendChild(wrapper_container);
+
+        comments.appendChild(container);
+
+    });
+}
+jQuery(document).ready(function($) {
+    displayPosts();
 });

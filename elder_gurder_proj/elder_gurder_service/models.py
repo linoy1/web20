@@ -32,7 +32,7 @@ class LonelyPeople(models.Model):
     deatils = models.TextField(null=True)
     
     def __str__(self):
-        return f'The name is {self.name} and his address is {self.address}'
+        return f'{self.name}'
 
     def get_absolute_url(self):
         return reverse("lonely", args=[str(self.pk)])

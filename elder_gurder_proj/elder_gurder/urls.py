@@ -32,7 +32,7 @@ urlpatterns = [
     # path('edit_visit',views.edit_visit),
     # path('delete_visit',views.delete_visit),
     
-    path('converstions_ideas' , views.converstions_ideas, name='converstions_ideas'),
+    path('articals' , views.articals, name='articals'),
     
     # lonely
     path('create_loenly' , views.CreateLonely.as_view(), name='create_loenly'),

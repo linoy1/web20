@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from elder_gurder_service.forms import UserAdminCreationForm , UserAuthForm , Lonely
+from elder_gurder_service.forms import UserAdminCreationForm , UserAuthForm 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -186,8 +186,8 @@ class DeleteViewVisit(DeleteView):
 
 
 
-def converstions_ideas(request):
-    return render(request,'converstion_ideas.html')
+def articals(request):
+    return render(request,'articals.html')
 
 
 def logout_view(request):
