@@ -35,7 +35,7 @@ urlpatterns = [
     path('converstions_ideas' , views.converstions_ideas, name='converstions_ideas'),
     
     # lonely
-    path('create_loenly' , views.CreateLonely.as_view()),
+    path('create_loenly' , views.CreateLonely.as_view(), name='create_loenly'),
     path('lonely_peoples', views.LonelyPeoples.as_view(), name='lonely_peoples'),
     path('lonely/<int:pk>', views.LonelyDetails.as_view() , name='lonely'), 
     path('delete_lonely/<int:pk>', views.DeleteLonelyView.as_view(), name='delete_lonely'),
