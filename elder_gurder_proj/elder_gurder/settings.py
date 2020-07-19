@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'elder_gurder_service',
-    # 'crispy_forms',
+    'crispy_forms',
     # 'elder_gurder_service.apps.MainConfig'
 ]
 
@@ -128,3 +128,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = ('elder_gurder_service.auth.EmailBackend',)
+LOGOUT_REDIRECT_URL = '/'
+LOGOUT_URL = '/'
