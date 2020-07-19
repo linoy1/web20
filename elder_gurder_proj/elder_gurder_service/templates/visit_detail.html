@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 
 {% block body_block %}
-    <section class="peopleheader">
-        <h1>
-            {{ visit }}
-        </h1>
-        <h2>
-            {{ visit.visit_details }}
-        </h2>
-    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-block">
+                        <h3 class="card-title">{{ visit.loneny.name }}</h3>
+                        <p class="card-text">{{ visit.visit_details }}</p>
+                        <small class="text-muted">{{ visit.date }}</small>
+                        <small class="text-muted">{{ visit.user.username }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+
+        
+
+
+
+     
+
