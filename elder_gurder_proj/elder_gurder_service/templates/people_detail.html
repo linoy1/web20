@@ -2,43 +2,62 @@
 {% block body_block %}
 
     <div class='container'>
-        <div class="col-lg 3 col-md-3  col-sm-12 col-xs-12">
-            <div class="card card-inverse card-primary text-center">
-              <div class="card-block">
-                <h4 class="card-title">{{ lonely_person.name }}</h4>
-                <ul>
-                    <li>
-                    {{ lonely_person.age }}
-                        :גיל
-                    </li>
-                    <li id="address">      
-                        {{ lonely_person.address }}
-                        :כתובת
-                    </li>
-                    <li>
-                        {{ lonely_person.phone }}
-                        :טלפון
-                    </li>
-                </ul>
-                <p class="card-text">
-                    {{ lonely_person.deatils }}
-                </p>
-                <a href="{% url 'create_visit' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">יצירת ביקור</a>
-                <a href="{% url 'list_view_visits' loneny_id=lonely_person.pk %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
-                    היסטוריית ביקורים
-                </a>
-                {% comment %} display button only if the user created the loenly person {% endcomment %}
-                {% if user.email == lonely_person.user.email %}
-                    <a href="{%url 'delete_lonely' pk=lonely_person.pk %}" class="btn btn-danger btn-lg active">
-                        מחק
-                    </a>
-                    <a href="{%url 'update_lonely' pk=lonely_person.pk %}" class="btn btn-info btn-lg active">
-                        עדכן פרטים
-                    </a>
-                {% endif %}
-                
+        <div class="row">
+        
+            <div class="col-md-8  col-sm-12 col-xs-12">
+                <div class="card card-inverse card-primary text-center">
+                <div class="card-block">
+                    <h4 class="card-title">{{ lonely_person.name }}</h4>
+                    <ul>
+                        <li>
+                        {{ lonely_person.age }}
+                            :גיל
+                        </li>
+                        <li id="address">      
+                            {{ lonely_person.address }}
+                            :כתובת
+                        </li>
+                        <li>
+                            {{ lonely_person.phone }}
+                            :טלפון
+                        </li>
+                    </ul>
+                    <p class="card-text">
+                        {{ lonely_person.deatils }}
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md-8  col-sm-12 col-xs-12">
+                            <a href="{% url 'create_visit' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">יצירת ביקור</a>
+                        </div>
+                        <div class="col-md-8  col-sm-12 col-xs-12">
+                            <a href="{% url 'list_view_visits' loneny_id=lonely_person.pk %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                                היסטוריית ביקורים
+                            </a>
+                        </div>
+                        {% comment %} display button only if the user created the loenly person {% endcomment %}
+                        {% if user.email == lonely_person.user.email %}
+                            <div class="col-md-8  col-sm-12 col-xs-12">
+                                <a href="{%url 'delete_lonely' pk=lonely_person.pk %}" class="btn btn-danger btn-lg active">
+                                    מחק
+                                </a>
+                            </div>
+                            <div class="col-md-8  col-sm-12 col-xs-12">
+                                <a href="{%url 'update_lonely' pk=lonely_person.pk %}" class="btn btn-info btn-lg active">
+                                    עדכן פרטים
+                                </a>
+                            </div>
+                            
+                        {% endif %}
+                    </div>
+
+                    
+                    
+                    
+                </div>
+                </div>
             </div>
-            </div>
+        
         </div>
     </div>
        
